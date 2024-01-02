@@ -1,0 +1,44 @@
+trainer:
+    # which model to use?
+    model_type: unet
+    # Blurpool module
+    antialiasing: False
+    # Context Embedding module
+    context_embedding: False
+    # Type of the loss (can choose one of CE, DSC, IOU, FOCAL, TverskyLoss, DSCwCE)
+    loss_type: CE
+    # number of epochs
+    num_epoch: 200
+    # learning rate
+    lr: 0.001
+    # monitor metric
+    monitor_metric: val_loss
+    # tolerence for early stopping
+    tolerance: 70
+    # shuffle data when training
+    shuffle_data: True
+    # training batch size
+    batch_size: 32
+    # gpu number to use
+    gpu_num: 1
+    # How many data loading workers per GPU?
+    num_workers: 24
+    # pretrained model dir
+    pretrained: None
+    # model idx
+    model_idx: 0
+    
+logging:
+    # inference analysis
+    inference_analysis:
+        resize_to_original: False
+        input: True
+        label: True
+        output: True
+        input_image_contour: True
+        probability_map: True
+        CCA: False
+        entropy: True
+        BALD: False
+        epistemic: False
+        aleatoric: False
